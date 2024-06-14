@@ -1,0 +1,59 @@
+.App {
+  position: relative;
+  width: 100vw; 
+  height: 100vh; 
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  width: 50vh;
+  height: 50vh;
+  border: 1px solid red;
+  top: 20%;
+  display: flex;
+  position: relative;
+}
+
+.zero {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.one {
+  left: 70%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.two {
+  left: 90%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.three {
+  left: 70%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+}
+
+.four {
+  left: 30%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+}
+
+.five {
+  left: 10%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.six {
+  left: 30%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}
