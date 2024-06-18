@@ -21,14 +21,14 @@
 }
 
 .duck-clone{
-  width: 8.6vh;
-  height: 8.6vh;
+  width: 8.6svh;
+  height: 8.6svh;
 }
 
 .duck-line {
   margin-bottom: 30%;
-  width: 40vh;
-  height: 9vh;
+  width: 40svh;
+  height: 9svh;
   justify-content: center;
   border-bottom: 1px solid rgb(178, 178, 178);
 }
@@ -45,7 +45,7 @@
   font-weight: medium;
   font-family: "Arvo", serif;
   font-style: normal;
-  font-size: 3.7vh;
+  font-size: 3.7svh;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -61,8 +61,8 @@
 
 .duck {
   position: absolute;
-  width: 8vh;
-  height: 8vh;
+  width: 8svh;
+  height: 8svh;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -70,17 +70,17 @@
 }
 
 .duck-menu {
-  width: 25vh;
-  height: 25vh;
-  margin-bottom: 12vh;
+  width: 25svh;
+  height: 25svh;
+  margin-bottom: 12svh;
   display: flex;
   position: relative;
   flex-direction: column;
 }
 
 .container {
-  width: 50vh;
-  height: 100vh;
+  width: 50svh;
+  height: 100svh;
   top: 0;
   bottom: 0;
   display: flex;
@@ -135,33 +135,33 @@
 
 .button {
   z-index: 3;
-  width: 12vh;
+  width: 12svh;
   color: black;
-  font-size: 2vh;
+  font-size: 2svh;
   font-family: "Arvo", serif;
   font-weight: regular;
   background-color: rgb(240, 240, 240);
-  padding: 1vh;
-  padding-bottom: 0.9vh;
-  border-radius: 0.7vh;
+  padding: 1svh;
+  padding-bottom: 0.9svh;
+  border-radius: 0.7svh;
   border: none;
   cursor: pointer;
 }
 
 .reset {
-  height: 4vh;
-  width: 4vh;
-  padding: 1.3vh;
+  height: 4svh;
+  width: 4svh;
+  padding: 1.3svh;
   border-radius: 100%;
   overflow: visible;
-  margin-left: 2vh;
-  margin-right: 2vh;
+  margin-left: 2svh;
+  margin-right: 2svh;
 }
 
 .bottom-bar {
   width: 90%;
-  height: 5vh;
-  margin-bottom: 5vh;
+  height: 5svh;
+  margin-bottom: 5svh;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -171,15 +171,15 @@
   position: absolute;
   top: 22%;
   color: black;
-  font-size: 1.5vh;
+  font-size: 1.5svh;
   font-family: "Arvo", serif;
   font-weight: regular;
   background-color: rgb(240, 240, 240);
-  padding-top: 1vh;
-  padding-bottom: 0.8vh;
-  padding-left: 1.5vh;
-  padding-right: 1.5vh;
-  border-radius: 0.7vh;
+  padding-top: 1svh;
+  padding-bottom: 0.8svh;
+  padding-left: 1.5svh;
+  padding-right: 1.5svh;
+  border-radius: 0.7svh;
 }
 
 .status-message.empty {

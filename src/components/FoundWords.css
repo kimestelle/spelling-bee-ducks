@@ -4,12 +4,12 @@
     width: 75%;
     z-index: 2;
     background-color: rgb(240, 240, 240);
-    padding: 2vh;
-    padding-bottom: 0.9vh;
+    padding: 2svh;
+    padding-bottom: 0.9svh;
     padding-top: 0;
     overflow: hidden;
     transition: 0.2s ease;
-    border-radius: 1vh;
+    border-radius: 1svh;
     z-index: 5;
     border: none;
 }
@@ -18,30 +18,30 @@
     transform-origin: top;
     top: 16%;
     display: block;
-    height: 78vh;
-    max-height: 78vh;
-    padding-top: 1.5vh;
+    height: 78svh;
+    max-height: 78svh;
+    padding-top: 1.5svh;
 }
 
 .dropdown-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 1.5vh;
+    font-size: 1.5svh;
   }
   .dropdown-list.open {
     display: block;
-    height: 66vh;
-    max-height: 66vh;
-    margin-bottom: 10vh;
+    height: 66svh;
+    max-height: 66svh;
+    margin-bottom: 10svh;
     background-color: rgb(240, 240, 240);
     column-count: 3;
-    column-gap: 2.5vh;
+    column-gap: 2.5svh;
     column-fill: auto;
   }
 
   .dropdown-list.open li {
-    margin-bottom: 1.2vh;
+    margin-bottom: 1.2svh;
     border-bottom: 1px solid white;
     overflow: hidden;
   }
@@ -50,11 +50,11 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
-    padding-top: 2vh;
-    padding-bottom: 0.3vh;
-    gap: 1.5vh;
+    padding-top: 2svh;
+    padding-bottom: 0.3svh;
+    gap: 1.5svh;
     overflow: hidden;
-    height: 2vh;
+    height: 2svh;
   }
   
   .dropdown-toggle {
@@ -62,10 +62,10 @@
     cursor: pointer;
     right: 0;
     top: 0;
-    height: 1vh;
-    padding: 2.15vh;
-    padding-right: 1.5vh;
-    padding-left: 30vh;
+    height: 1svh;
+    padding: 2.15svh;
+    padding-right: 1.5svh;
+    padding-left: 30svh;
     background: linear-gradient(90deg, transparent, rgb(240, 240, 240));
     z-index: 4;
   }
@@ -78,8 +78,8 @@
   .words-found {
     padding: 0;
     margin: 0;
-    font-size: 1.5vh;
-    padding-top: 2vh;
-    padding-bottom: 0.5vh;
-    height: 2vh;
+    font-size: 1.5svh;
+    padding-top: 2svh;
+    padding-bottom: 0.5svh;
+    height: 2svh;
   }

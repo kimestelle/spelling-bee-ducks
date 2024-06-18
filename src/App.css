@@ -1,12 +1,17 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Arvo", serif;
+  font-size: 1.7svh;
+}
+
 .App {
-  width: 100vw; 
-  height: 100vh; 
+  width: 100svw; 
+  height: 100svh; 
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
-  font-size: 1.7vh;
-  font-family: rockwell, sans-serif;
-  font-weight: lighter;
 }
 
