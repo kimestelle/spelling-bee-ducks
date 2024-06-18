@@ -10,7 +10,7 @@ import shuffleButton from '../assets/shuffle.svg'
 
 
 const wordList = [
-  'ACED', 'FADED', 'FADE', 'BADE', 'FACE', 'FACED', 'BAGGED', 'DABBED', 'DEAF', 'CAGE', 'CAGED'
+  'ACED', 'AGED', 'FADED', 'FADE', 'BADE', 'FACE', 'FACED', 'BAGGED', 'DABBED', 'DEAF', 'CAGE', 'CAGED', 'GAFFED'
 ];
 
 function DuckMenu() {
@@ -172,6 +172,7 @@ function DuckMenu() {
     setDuckList([]);
     setWord('');
     setFoundWords([]);
+    shuffle();
   }
 
   return (
