@@ -137,25 +137,38 @@
   z-index: 3;
   width: 12svh;
   color: black;
-  font-size: 2svh;
+  font-size: 1.7svh;
   font-family: "Arvo", serif;
   font-weight: regular;
   background-color: rgb(240, 240, 240);
-  padding: 1svh;
-  padding-bottom: 0.9svh;
+  padding: 0.9svh;
+  padding-bottom: 0.8svh;
   border-radius: 0.7svh;
   border: none;
   cursor: pointer;
 }
 
-.reset {
-  height: 4svh;
-  width: 4svh;
+.shuffle {
+  height: 3svh;
+  width: 3svh;
   padding: 1.3svh;
   border-radius: 100%;
   overflow: visible;
   margin-left: 2svh;
   margin-right: 2svh;
+}
+
+.reset {
+  position: absolute;
+  height: 3svh;
+  width: 3svh;
+  padding: 1.3svh;
+  border-radius: 100%;
+  overflow: visible;
+  margin-left: 4.3svh;
+  margin-right: 2svh;
+  align-self: flex-start;
+  top: 3.5svh;
 }
 
 .bottom-bar {
