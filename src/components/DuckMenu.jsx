@@ -5,14 +5,14 @@ import Duck from './Duck.jsx';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { v4 as uuidv4 } from 'uuid';
 import FoundWords from './FoundWords';
+import resetButton from '../assets/reset.svg'
 
 const letters = [
   'A', 'B', 'C', 'D', 'E', 'F', 'G'
 ];
 
 const wordList = [
-  'ACED', 'FADED',
-  // 'ACED', 'FADED', 'FADE', 'BADE', 'FACE', 'FACED', 'BAGGED', 'DABBED', 'DEAF', 'CAGE', 'CAGED'
+  'ACED', 'FADED', 'FADE', 'BADE', 'FACE', 'FACED', 'BAGGED', 'DABBED', 'DEAF', 'CAGE', 'CAGED'
 ];
 
 const ducks = [
@@ -166,7 +166,7 @@ function DuckMenu() {
       <div className='App'>
         <div className='container'>
           <FoundWords foundWords={foundWords}></FoundWords>
-          <p className='status-message'>{statusMessage}</p>
+          <p className={`status-message ${statusMessage === '' ? 'empty' : ''}`}>{statusMessage}</p>
           <Droppable droppableId='duck-line' direction='horizontal'>
             {(provided) => (
               <div className='duck-line' {...provided.droppableProps} ref={provided.innerRef} style={{ display:'flex' }}>
@@ -217,9 +217,9 @@ function DuckMenu() {
             )}
           </Droppable>
           <div className='bottom-bar'>
-            <button className='button delete' onClick={() => undo()}>Delete</button>
-            <button className='button reset' onClick={reset}>Reset</button>
-            <button className='button enter' onClick={handleSubmit}>Enter</button>
+            <button className='button' onClick={() => undo()}>delete</button>
+            <img src={resetButton} className='button reset' onClick={reset}/>
+            <button className='button' onClick={handleSubmit}>enter</button>
           </div>
         </div>
       </div>
