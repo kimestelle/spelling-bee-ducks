@@ -1,4 +1,5 @@
 {
+  "homepage": "https://kimestelle.github.io/spelling-bee-ducks",
   "name": "spelling-bee-ducks",
   "private": true,
   "version": "0.0.0",
@@ -7,13 +8,17 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^16.6.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
+    "react-scale-text": "^1.2.2",
+    "use-fit-text": "^2.4.0",
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
@@ -24,6 +29,7 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "gh-pages": "^6.1.1",
     "vite": "^5.2.0"
   }
 }

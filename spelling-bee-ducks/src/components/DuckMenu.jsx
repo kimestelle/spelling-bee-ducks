@@ -4,9 +4,15 @@ import './Duck.css';
 import Duck from './Duck.jsx';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { v4 as uuidv4 } from 'uuid';
+import FoundWords from './FoundWords';
 
 const letters = [
   'A', 'B', 'C', 'D', 'E', 'F', 'G'
+];
+
+const wordList = [
+  'ACED', 'FADED',
+  // 'ACED', 'FADED', 'FADE', 'BADE', 'FACE', 'FACED', 'BAGGED', 'DABBED', 'DEAF', 'CAGE', 'CAGED'
 ];
 
 const ducks = [
@@ -23,6 +29,16 @@ function DuckMenu() {
   const [duckList, setDuckList] = useState([]);
   const [word, setWord] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
+  const [foundWords, setFoundWords] = useState([]);
+
+  useEffect(() => {
+    console.log(foundWords);
+    console.log(wordList.length, foundWords.length);
+      if (wordList.length === foundWords.length) {
+        console.log('you win');
+        setStatusMessage('You win!');
+      }
+    }, [foundWords]);
 
   useEffect(() => {
 
@@ -36,6 +52,9 @@ function DuckMenu() {
     const undo = () => {
       setDuckList(prevDuckList => 
         prevDuckList.slice(0, -1)
+      )
+      setWord(prevWord =>
+        prevWord.slice(0, -1)
       )
     }
 
@@ -83,22 +102,43 @@ function DuckMenu() {
     }
   };
 
-  const setLetter = (duckId, newLetter) => {
-    setDuckList((prevDuckList) => {
-      if (prevDuckList.length > 10) {
-        return prevDuckList; 
+  const handleSubmit = () => {
+    console.log(foundWords);
+    if (word.length === 0) {
+      return;
+// **replace this with if word is in the dict subset
+    } else if (word.length <= 3) {
+      setStatusMessage('Too Short!');
+    } else if (wordList.indexOf(word) > -1) {
+      if (foundWords.indexOf(word) != -1) {
+        setDuckList([]);
+        setWord('');
+        setStatusMessage('Already found!');
+        return;
       }
-      
-      return prevDuckList.map((duck) =>
-        duck.id === duckId ? { ...duck, letter: newLetter } : duck
-      );
-    });
+      setFoundWords(prevWords => [...prevWords, word]);
+      setDuckList([]);
+      setWord('');
+      setStatusMessage('Good!');
+      return;
+    } else {
+      setDuckList([]);
+      setWord('');
+      setStatusMessage('Not in word list');
+    }
   };
+
+  const reset = () => {
+    setDuckList([]);
+    setWord('');
+    setFoundWords([]);
+  }
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className='App'>
         <div className='container'>
+          <FoundWords foundWords={foundWords}></FoundWords>
           <p className='status-message'>{statusMessage}</p>
           <Droppable droppableId='duck-line' direction='horizontal'>
             {(provided) => (
@@ -149,9 +189,12 @@ function DuckMenu() {
               </div>
             )}
           </Droppable>
+          <div className='bottom-bar'>
+            <button className='button delete' onClick={() => undo()}>Delete</button>
+            <button className='button reset' onClick={reset}>Reset</button>
+            <button className='button enter' onClick={handleSubmit}>Enter</button>
+          </div>
         </div>
-        <button className='button' onClick={() => setLetter('duck-0', 'Z')}>Change Duck 0 to Z</button>
-        <button className='undo-button' onClick={() => undo()}>Undo</button>
       </div>
     </DragDropContext>
   );

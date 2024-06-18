@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import duck from '../assets/duck.svg';
+// import ScaleText from "react-scale-text";
 import './Duck.css'
 
 const Duck = ({ letter, center, className }) => {
@@ -14,16 +15,9 @@ const Duck = ({ letter, center, className }) => {
       </svg>
       <img src={duck} alt={`Duck ${letter}`} className="duck-image" />
 
-      <div className="duck-letter">
-        <span
-          className="duck-letter-text"
-          style={{
-            color: !center ? 'black' : 'white',
-          }}
-        >
+      <div style={{ color: !center ? 'black' : 'white' }} className="duck-letter">
           {letter}
-        </span>
-        </div>
+      </div>
     </div>
   );
 };
