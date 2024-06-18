@@ -180,8 +180,8 @@ function DuckMenu() {
                         style={{
                           ...provided.draggableProps.style,
                           display: 'block',
-                          marginLeft:'-5.8%',
-                          marginRight:'-5.8%'
+                          marginLeft:'-6.4%',
+                          marginRight:'-6.4%'
                         }}
                         className="duck-clone"
                       >

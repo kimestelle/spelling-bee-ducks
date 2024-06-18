@@ -25,7 +25,7 @@
 
 .duck-line {
   margin-bottom: 30%;
-  width: 45vh;
+  width: 40vh;
   height: 9vh;
   justify-content: center;
   border-bottom: 1px solid rgb(178, 178, 178);
@@ -34,6 +34,7 @@
 
 .duck-letter {
   position: absolute;
+  z-index: 3;
   height: 113%;
   top: 0;
   width: 37%;
@@ -83,6 +84,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  border: 1px solid gray;
 }
 
 .duck-0 {
