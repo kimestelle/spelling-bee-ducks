@@ -28,6 +28,15 @@
     max-height: 65vh;
     margin-bottom: 10vh;
     border: 1px solid red;
+    column-count: 3;
+    column-gap: 2.5vh;
+    column-fill: auto;
+  }
+
+  .dropdown-list.open li {
+    margin-bottom: 1.2vh;
+    border-bottom: 1px solid white;
+    overflow: hidden;
   }
 
   .dropdown-list.closed {
@@ -50,4 +59,9 @@
   .dropdown-toggle.down {
     -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
+  }
+
+  .words-found {
+    margin-top: 2vh;
+    font-size: 1.8vh;
   }

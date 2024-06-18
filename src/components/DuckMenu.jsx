@@ -63,12 +63,35 @@ function DuckMenu() {
         setStatusMessage('word cannot exceed 11 letters');
         return;
       }
-      const clonedDuck = { ...duck, id: uuidv4() };
-      setDuckList([...duckList, clonedDuck]);
-      const newWord = [...duckList, clonedDuck].map(d => d.letter).join('');
-      setWord(newWord);
-      console.log(newWord);
+      setDuckList(prevDuckList => {
+        const clonedDuck = { ...duck, id: uuidv4() };
+        const newWord = [...duckList, clonedDuck].map(d => d.letter).join('');
+        setWord(newWord);
+        console.log(newWord);
+        return [...prevDuckList, clonedDuck];
+      });
     };
+
+    useEffect(() => {
+      function handleKeyDown(e) {
+        const key = e.key.toUpperCase();
+        const index = letters.indexOf(key);
+        if (index !== -1) {
+          handleDuckClick(ducks[index]);
+        } else if (e.key === 'Delete' || e.key === 'Backspace') {
+          console.log('undo')
+          undo();
+        } else if (e.key === 'Enter') {
+          handleSubmit();
+        }
+      }
+    
+      document.addEventListener('keydown', handleKeyDown);
+    
+      return function cleanup() {
+        document.removeEventListener('keydown', handleKeyDown);
+      }
+    }, [handleDuckClick]);
 
   const onDragEnd = (result) => {
     console.log(duckList);
@@ -109,6 +132,10 @@ function DuckMenu() {
 // **replace this with if word is in the dict subset
     } else if (word.length <= 3) {
       setStatusMessage('Too Short!');
+    } else if (!word.includes(letters[0])) {
+        setDuckList([]);
+        setWord('');
+        setStatusMessage('Missing center letter');
     } else if (wordList.indexOf(word) > -1) {
       if (foundWords.indexOf(word) != -1) {
         setDuckList([]);
@@ -170,7 +197,7 @@ function DuckMenu() {
 
           <Droppable droppableId='duck-menu' isDropDisabled={true}>
             {(provided) => (
-              <div className='duck-menu' {...provided.droppableProps} ref={provided.innerRef}>
+              <div className='duck-menu' {...provided.droppableProps} ref={provided.innerRef} >
                 {ducks.map((duck, index) => (
                   <Draggable key={duck.id} draggableId={duck.id} index={index}>
                     {(provided) => (
