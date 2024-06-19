@@ -201,9 +201,7 @@ function DuckMenu() {
     setDuckSink(1);
     setTimeout(() => {
       setDuckList([]);
-      setWord('');
-      setDuckAnimate(0); // Reset duck animation after a delay
-    }, 400); // Delay to allow time for the sinking animation
+    }, 400); 
   };
 
   const acceptForm = () => {
@@ -212,7 +210,7 @@ function DuckMenu() {
     setTimeout(() => {
       setDuckList([]);
       setWord('');
-    }, 400); // Delay to allow time for the sinking animation
+    }, 400); 
   };
 
   const reset = () => {
