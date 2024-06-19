@@ -2,22 +2,18 @@
 .duck {
   position: relative;
   user-select: none;
-  cursor: grab; 
-  transition: transform 0.2s ease;
+  cursor: grab;
+  transition: transform 0.2s ease, opacity 0.1s ease; /* Smooth transition for transform and opacity */
   display: inline-block;
   width: 100%;
+  height: 100%; /* Ensure the duck container has a height */
+  overflow: hidden; /* Prevent overflow from the container */
+  will-change: transform, opacity; /* Optimize for performance */
+  z-index: 1;
 }
 
 .duck:active {
   cursor: grabbing;
-}
-
-.duck-image {
-  width: 100%;
-  height: 90%;
-  bottom: 0;
-  display: block;
-  object-fit: contain;
 }
 
 .duck-clone{
@@ -36,8 +32,8 @@
 
 .duck-letter {
   position: absolute;
-  z-index: 3;
   height: 112.2%;
+  z-index: 2;
   top: 0;
   width: 37%;
   right: 15%;
@@ -203,6 +199,52 @@
   display: none;
 }
 
-.idk {
-  color: black;
+
+.duck-image {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-image: url('../assets/duck.svg');
+  transition: opacity 0.1s ease;
+  z-index: -1;
+}
+
+.flap {
+  animation: flap 0.4s steps(1) infinite;
+  will-change: background-image; 
+}
+
+.shake {
+  animation: shake 0.4s steps(1) infinite;
+  will-change: background-image;
+}
+
+
+@keyframes flap {
+  0% {
+    background-image: url('../assets/duck.svg');
+  }
+  33% {
+    background-image: url('../assets/duck-fly.svg');
+    background-size: 103%;
+  }
+  100% {
+    background-image: url('../assets/duck.svg');
+  }
+}
+
+@keyframes shake {
+  0% {
+    background-image: url('../assets/duck.svg');
+  }
+  15% {
+    background-image: url('../assets/duck-shake.svg');
+    background-size: 95%;
+    background-position: right bottom;
+  }
+  100% {
+    background-image: url('../assets/duck.svg');
+  }
 }

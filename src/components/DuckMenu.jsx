@@ -15,6 +15,8 @@ const wordList = [
 
 function DuckMenu() {
   const [duckList, setDuckList] = useState([]);
+  const [duckAnimate, setDuckAnimate] = useState(0);
+  const [duckSink, setDuckSink] = useState(0);
   const [word, setWord] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
   const [foundWords, setFoundWords] = useState([]);
@@ -40,6 +42,18 @@ function DuckMenu() {
         setStatusMessage('You win!');
       }
     }, [foundWords]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDuckAnimate(0);
+    }, 400);
+  }, [duckAnimate]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDuckSink(0);
+    }, 700);
+  }, [duckSink]);
 
   useEffect(() => {
 
@@ -81,6 +95,8 @@ function DuckMenu() {
         const newWord = [...duckList, clonedDuck].map(d => d.letter).join('');
         setWord(newWord);
         console.log(newWord);
+        setDuckAnimate(1);
+      console.log(duckAnimate);
         return [...prevDuckList, clonedDuck];
       });
     };
@@ -128,7 +144,6 @@ function DuckMenu() {
       setDuckList(newDuckList);
       const newWord = duckList.map(duck => duck.letter).join('');
       setWord(newWord);
-      console.log(word);
     } else if (result.source.droppableId === 'duck-line' && result.destination.droppableId === 'duck-line') {
       // move duck
       const items = Array.from(duckList);
@@ -136,43 +151,73 @@ function DuckMenu() {
       items.splice(destinationIndex, 0, movedDuck);
       setDuckList(items);
     }
+    setDuckAnimate(1);
+      console.log(duckAnimate);
   };
 
   const handleSubmit = () => {
     console.log(foundWords);
+  
     if (word.length === 0) {
       return;
-// **replace this with if word is in the dict subset
-    } else if (word.length <= 3) {
-      setStatusMessage('Too Short!');
-    } else if (!word.includes(letters[0])) {
-        setDuckList([]);
-        setWord('');
-        setStatusMessage('Missing center letter');
-    } else if (wordList.indexOf(word) > -1) {
-      if (foundWords.indexOf(word) != -1) {
-        setDuckList([]);
-        setWord('');
-        setStatusMessage('Already found!');
-        return;
-      }
-      setFoundWords(prevWords => [...prevWords, word]);
-      setDuckList([]);
-      setWord('');
-      setStatusMessage('Good!');
-      return;
-    } else {
-      setDuckList([]);
-      setWord('');
-      setStatusMessage('Not in word list');
     }
+  
+    if (word.length <= 3) {
+      setStatusMessage('Too Short!');
+      setDuckAnimate(2);
+      return;
+    }
+  
+    if (!word.includes(letters[0])) {
+      setStatusMessage('Missing center letter');
+      resetForm();
+      return;
+    }
+  
+    if (wordList.includes(word)) {
+      if (foundWords.includes(word)) {
+        setStatusMessage('Already found!');
+        resetForm();
+      } else {
+        setFoundWords(prevWords => [...prevWords, word]);
+        setStatusMessage('Good!');
+        acceptForm();
+      }
+      return;
+    }
+  
+    setStatusMessage('Not in word list');
+    resetForm();
+  };
+  
+  const resetForm = () => {
+    setDuckAnimate(2); 
+    setDuckSink(1);
+    setTimeout(() => {
+      setDuckList([]);
+      setWord('');
+      setDuckAnimate(0); // Reset duck animation after a delay
+    }, 400); // Delay to allow time for the sinking animation
+  };
+
+  const acceptForm = () => {
+    setDuckAnimate(1); 
+    setDuckSink(2);
+    setTimeout(() => {
+      setDuckList([]);
+      setWord('');
+    }, 400); // Delay to allow time for the sinking animation
   };
 
   const reset = () => {
-    setDuckList([]);
-    setWord('');
-    setFoundWords([]);
+    setDuckAnimate(1); 
+    setDuckSink(2);
+    setTimeout(() => {
+      setDuckList([]);
+      setWord('');
+      setFoundWords([]);
     shuffle();
+    }, 400);
   }
 
   return (
@@ -200,7 +245,7 @@ function DuckMenu() {
                         }}
                         className="duck-clone"
                       >
-                        <Duck letter={duck.letter} center={duck.center}/>
+                        <Duck letter={duck.letter} center={duck.center} duckAnimate={duckAnimate} sink={duckSink}/>
                       </div>
                     )}
                   </Draggable>
