@@ -226,9 +226,13 @@
   0% {
     background-image: url('../assets/duck.svg');
   }
-  33% {
+  5% {
     background-image: url('../assets/duck-fly.svg');
-    background-size: 103%;
+    background-size: 102%;
+  }
+  30% {
+    background-image: url('../assets/duck.svg');
+    background-size: 100%;
   }
   100% {
     background-image: url('../assets/duck.svg');
