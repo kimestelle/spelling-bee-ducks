@@ -212,7 +212,7 @@
 }
 
 .flap {
-  animation: flap 0.4s steps(1) infinite;
+  animation: flap 0.2s steps(1) infinite;
   will-change: background-image; 
 }
 
@@ -226,13 +226,9 @@
   0% {
     background-image: url('../assets/duck.svg');
   }
-  5% {
+  40% {
     background-image: url('../assets/duck-fly.svg');
     background-size: 102%;
-  }
-  30% {
-    background-image: url('../assets/duck.svg');
-    background-size: 100%;
   }
   100% {
     background-image: url('../assets/duck.svg');

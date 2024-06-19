@@ -44,9 +44,15 @@ function DuckMenu() {
     }, [foundWords]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setDuckAnimate(0);
-    }, 400);
+    if (duckAnimate === 1) {
+      setTimeout(() => {
+        setDuckAnimate(0);
+      }, 200);
+    } else if (duckAnimate === 2) {
+      setTimeout(() => {
+        setDuckAnimate(0);
+      }, 400);
+    }
   }, [duckAnimate]);
 
   useEffect(() => {
