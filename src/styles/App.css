@@ -31,10 +31,3 @@
     align-items: center;
     gap: 1svh;
 }
-
-.eye {
-    position: absolute;
-    top: 60svh;
-    opacity: 50%;
-    color: lightgray;
-}
