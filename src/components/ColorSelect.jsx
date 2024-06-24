@@ -85,30 +85,26 @@ gl_FragColor = vec4(color, 1.0);
   const handlePointerClick = (event) => {
     event.stopPropagation();
 
-    // Access the canvas element through three.js context
     const canvas = gl.domElement;
     if (!canvas || !(canvas instanceof HTMLCanvasElement)) {
       console.error('Canvas element not found or invalid');
       return;
     }
 
-    // Calculate relative coordinates within the canvas
     const rect = canvas.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width;
     const y = (event.clientY - rect.top) / rect.height;
 
-    // Get 2D context to read pixel data
+   // error message here
     const ctx = canvas.getContext('2d');
     if (!ctx) {
       console.error('Unable to retrieve canvas context');
       return;
     }
 
-    // Read pixel data at the calculated coordinates
     const pixel = ctx.getImageData(x * canvas.width, y * canvas.height, 1, 1).data;
     const rgbColor = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
 
-    // Trigger color select callback
     if (onColorSelect) {
       onColorSelect(rgbColor);
     }
