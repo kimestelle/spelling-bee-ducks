@@ -1,0 +1,40 @@
+* {
+    border: 1px solid red;
+}
+
+.App {
+    width: 100svw; 
+    height: 100svh; 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+.title-bar {
+    display: flex;
+    width: 40svh;
+    max-width: 40svh;
+    flex-direction: row;
+}
+
+.top {
+    display: block;
+}
+
+.login-bar {
+    height: 30svh;
+    width: 20svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1svh;
+}
+
+.eye {
+    position: absolute;
+    top: 60svh;
+    opacity: 50%;
+    color: lightgray;
+}

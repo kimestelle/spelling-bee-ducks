@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Arvo", serif;
+    font-size: 1.7svh;
+  }
+
+  button {
+    z-index: 3;
+    width: 12svh;
+    color: black;
+    font-size: 1.7svh;
+    font-family: "Arvo", serif;
+    font-weight: regular;
+    background-color: rgb(240, 240, 240);
+    padding: 0.9svh;
+    padding-bottom: 0.8svh;
+    border-radius: 0.7svh;
+    border: none;
+    cursor: pointer;
+  }
+
+  input {
+    border-radius: 0.7svh;
+    font-family: "Arvo", serif;
+    font-size: 1.5svh;
+    border: 1px solid gray;
+    padding: 0.7svh;
+  }

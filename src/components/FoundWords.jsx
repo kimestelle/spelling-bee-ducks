@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import './FoundWords.css';
+import '../styles/FoundWords.css';
 import arrow from '../assets/arrow.svg';
 import { AnimatePresence, motion } from "framer-motion";
 

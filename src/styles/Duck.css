@@ -3,12 +3,12 @@
   position: relative;
   user-select: none;
   cursor: grab;
-  transition: transform 0.2s ease, opacity 0.1s ease; /* Smooth transition for transform and opacity */
+  transition: transform 0.2s ease, opacity 0.1s ease; 
   display: inline-block;
   width: 100%;
-  height: 100%; /* Ensure the duck container has a height */
-  overflow: hidden; /* Prevent overflow from the container */
-  will-change: transform, opacity; /* Optimize for performance */
+  height: 100%; 
+  overflow: hidden;
+  will-change: transform, opacity;
   z-index: 1;
 }
 
@@ -68,7 +68,7 @@
 .duck-menu {
   width: 25svh;
   height: 25svh;
-  margin-bottom: 12svh;
+  margin-bottom: 10svh;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -76,11 +76,10 @@
 
 .container {
   width: 50svh;
-  height: 100svh;
-  top: 0;
+  height: 93svh;
+  max-height: 93svh;
   bottom: 0;
   display: flex;
-  position: absolute;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
@@ -170,7 +169,7 @@
 .bottom-bar {
   width: 90%;
   height: 5svh;
-  margin-bottom: 5svh;
+  margin-bottom: 4svh;
   justify-content: center;
   align-items: center;
   display: flex;

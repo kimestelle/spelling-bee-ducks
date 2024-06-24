@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import '../App.css';
-import './Duck.css';
-import Duck from './Duck.jsx';
+import '../styles/Duck.css';
+import Duck from '../components/Duck.jsx';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { v4 as uuidv4 } from 'uuid';
-import FoundWords from './FoundWords';
-import resetButton from '../assets/reset.svg'
+import FoundWords from '../components/FoundWords.jsx';
+// import TopBar from '../components/TopBar.jsx';
 import shuffleButton from '../assets/shuffle.svg'
 
 
@@ -13,7 +12,7 @@ const wordList = [
   'ACED', 'AGED', 'FADED', 'FADE', 'BADE', 'FACE', 'FACED', 'BAGGED', 'DABBED', 'DEAF', 'CAGE', 'CAGED', 'GAFFED'
 ];
 
-function DuckMenu() {
+function Play() {
   const [duckList, setDuckList] = useState([]);
   const [duckAnimate, setDuckAnimate] = useState(0);
   const [duckSink, setDuckSink] = useState(0);
@@ -213,22 +212,22 @@ function DuckMenu() {
     }, 400); 
   };
 
-  const reset = () => {
-    setDuckAnimate(1); 
-    setDuckSink(2);
-    setTimeout(() => {
-      setDuckList([]);
-      setWord('');
-      setFoundWords([]);
-    shuffle();
-    }, 400);
-  }
+  // const reset = () => {
+  //   setDuckAnimate(1); 
+  //   setDuckSink(2);
+  //   setTimeout(() => {
+  //     setDuckList([]);
+  //     setWord('');
+  //     setFoundWords([]);
+  //   shuffle();
+  //   }, 400);
+  // }
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className='App'>
+      <div className='App' id='root'>
+      {/* <TopBar/> */}
         <div className='container'>
-          <img src={resetButton} className='button reset' onClick={reset}/>
           <FoundWords foundWords={foundWords}></FoundWords>
           <p className={`status-message ${statusMessage === '' ? 'empty' : ''}`}>{statusMessage}</p>
           <Droppable droppableId='duck-line' direction='horizontal'>
@@ -291,4 +290,4 @@ function DuckMenu() {
   );
 }
 
-export default DuckMenu;
+export default Play;

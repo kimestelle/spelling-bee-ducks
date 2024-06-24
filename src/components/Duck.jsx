@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './Duck.css';
+import '../styles/Duck.css';
 
 const Duck = ({ letter, center, className, duckAnimate, sink }) => {
   const animationClass = duckAnimate === 1 ? 'duck-image flap' : (duckAnimate === 2 ? 'duck-image shake' : 'duck-image');
