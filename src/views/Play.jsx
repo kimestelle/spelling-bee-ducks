@@ -29,8 +29,8 @@ function Play() {
 
 
   const ducks = [
-    { id: 'duck-0', letter: letters[0], center: true, animate: bottomAnimation[0]},
-    { id: 'duck-1', letter: letters[1], center: false, animate: bottomAnimation[1] },
+    { id: 'duck-0', style: 'duck-0',letter: letters[0], center: true, animate: bottomAnimation[0]},
+    { id: 'duck-1', style: 'duck-1', letter: letters[1], center: false, animate: bottomAnimation[1] },
     { id: 'duck-2', letter: letters[2], center: false, animate: bottomAnimation[2] },
     { id: 'duck-3', letter: letters[3], center: false, animate: bottomAnimation[3] },
     { id: 'duck-4', letter: letters[4], center: false, animate: bottomAnimation[4] },
@@ -254,11 +254,11 @@ function Play() {
   // }
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
       <div className='App' id='root'>
       {/* <TopBar/> */}
-        <div className='container'>
           <FoundWords foundWords={foundWords}></FoundWords>
+          <div className='container'>
+          <DragDropContext onDragEnd={onDragEnd}>
           <p className={`status-message ${statusMessage === '' ? 'empty' : ''}`}>{statusMessage}</p>
           <Droppable droppableId='duck-line' direction='horizontal'>
             {(provided) => (
@@ -316,9 +316,9 @@ function Play() {
             <img src={shuffleButton} className='button shuffle' onClick={shuffle}/>
             <button className='button' onClick={handleSubmit}>enter</button>
           </div>
+          </DragDropContext>
         </div>
       </div>
-    </DragDropContext>
   );
 }
 
