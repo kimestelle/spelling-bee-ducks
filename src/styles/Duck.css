@@ -1,14 +1,19 @@
 
 .duck {
-  position: relative;
   user-select: none;
   cursor: grab;
-  transition: transform 0.2s ease, opacity 0.1s ease; 
-  display: inline-block;
-  width: 100%;
-  height: 100%; 
-  overflow: hidden;
-  will-change: transform, opacity;
+  transition: transform 0.2s ease, opacity 0.1s ease;
+  width: 7.6svh;
+  max-width: 7.6svh;
+  height: 8.3svh;
+  max-height: 8.3svh;
+
+  display: flex;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-image: url('../assets/duck.svg');
   z-index: 1;
 }
 
@@ -16,74 +21,61 @@
   cursor: grabbing;
 }
 
-.duck-clone{
-  width: 8.6svh;
-  height: 8.6svh;
-}
-
 .duck-line {
-  margin-bottom: 30%;
-  width: 40svh;
+  display: flex;
+  margin-bottom: 31%;
+  width: 45svh;
   height: 9svh;
   justify-content: center;
   border-bottom: 1px solid rgb(178, 178, 178);
 }
 
-
 .duck-letter {
-  position: absolute;
-  height: 112.2%;
-  z-index: 2;
-  top: 0;
-  width: 37%;
-  right: 15%;
-  color: black;
-  font-weight: medium;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding-left: 2svh;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   font-family: "Arvo", serif;
   font-style: normal;
-  font-size: 3.7svh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  /* -webkit-mask: url(#duckMask);
-  mask: url(#duckMask);
-  mask-size: 100%;
-    -webkit-mask-size: 100%; */
+  font-size: 4svh;
+
+  -webkit-mask-image: url('../assets/duck.svg');
+  mask-image: url('../assets/duck.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
-.duck-letter.centered {
+.centered {
   color: white; 
-}
-
-.duck {
-  position: absolute;
-  width: 8svh;
-  height: 8svh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  overflow: hidden;
 }
 
 .duck-menu {
   width: 25svh;
   height: 25svh;
-  margin-bottom: 10svh;
+  margin-bottom: 9svh;
   display: flex;
   position: relative;
   flex-direction: column;
 }
 
 .container {
+  position: relative;
   width: 50svh;
-  height: 93svh;
-  max-height: 93svh;
+  height: 100svh;
+  max-height: 100svh;
   bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   border: 1px solid gray;
+}
+.duck-0, .duck-1, .duck-2, .duck-3, .duck-4, .duck-5, .duck-6 {
+  position: absolute;
 }
 
 .duck-0 {
@@ -126,6 +118,16 @@
   left: 30%;
   top: 20%;
   transform: translate(-50%, -50%);
+}
+
+.pond {
+  position: absolute;
+  user-select: none;
+  z-index: -1;
+  height: 25.5svh;
+  max-height: 25.5svh;
+  bottom: 15.5svh;
+  transform: translateX(1.5%);
 }
 
 .shuffle {
@@ -183,28 +185,29 @@
   display: none;
 }
 
-
-.duck-image {
-  width: 100%;
-  height: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-image: url('../assets/duck.svg');
-  transition: opacity 0.1s ease;
-  z-index: -1;
+.vanilla-flap {
+  animation: vanilla-flap 0.2s steps(1) infinite;
 }
 
 .flap {
   animation: flap 0.2s steps(1) infinite;
-  will-change: background-image; 
 }
 
 .shake {
   animation: shake 0.4s steps(1) infinite;
-  will-change: background-image;
 }
 
+@keyframes vanilla-flap {
+  0% {
+    background-image: url('../assets/duck.svg');
+  }
+  40% {
+    background-image: url('../assets/duck-fly.svg');
+  }
+  100% {
+    background-image: url('../assets/duck.svg');
+  }
+}
 
 @keyframes flap {
   0% {
@@ -212,7 +215,7 @@
   }
   40% {
     background-image: url('../assets/duck-fly.svg');
-    background-size: 102%;
+    transform: translateY(-2%);
   }
   100% {
     background-image: url('../assets/duck.svg');
@@ -225,8 +228,7 @@
   }
   15% {
     background-image: url('../assets/duck-shake.svg');
-    background-size: 95%;
-    background-position: right bottom;
+    background-size: 94%;
   }
   100% {
     background-image: url('../assets/duck.svg');

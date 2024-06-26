@@ -34,7 +34,7 @@ function App() {
   };
 
   return (
-    <div className='App' id='root'>
+    <div className='screen flex-column' id='root'>
       <div className='title-bar'>
         <h1 className='title-element'> better-spelling-bee </h1>
         <img src={duck} className='title-element duck' alt='duck' />

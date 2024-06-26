@@ -19,7 +19,7 @@ const ThreeDuck = () => {
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
         <ColorSphere onColorSelect={handleColorSelect} />
-        <OrbitControls enablePan={false} enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
+        <OrbitControls enablePan={false} enableZoom={false} maxPolarAngle={Math.PI / 3} minPolarAngle={Math.PI / 3} />
       </Canvas>
       {selectedColor && (
         <div style={{ position: 'absolute', top: '20px', left: '20px', color: 'black', background: 'white', padding: '5px' }}>

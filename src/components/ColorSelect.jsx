@@ -43,7 +43,7 @@ const ColorSphere = ({ onColorSelect }) => {
     float hue = phi / (2.0 * 3.141592653589793); // Normalize phi to [0, 1]
       color = hsv2rgb(vec3(hue, 1.0, 1.0));
   
-      color = mix(color, vec3(1.0), smoothstep(1.0, 0.0, brightness));
+      color = mix(color, vec3(1.0), smoothstep(1.0, -0.8, brightness));
 
 
 gl_FragColor = vec4(color, 1.0);

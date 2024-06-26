@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import FoundWords from '../components/FoundWords.jsx';
 // import TopBar from '../components/TopBar.jsx';
 import shuffleButton from '../assets/shuffle.svg'
+import pond from '../assets/pond.svg'
 
 
 const wordList = [
@@ -22,16 +23,45 @@ function Play() {
   const [letters, setLetters] = useState([
     'A', 'B', 'C', 'D', 'E', 'F', 'G'
   ]);
+  const [bottomAnimation, setBottomAnimation] = useState([
+    0, 0, 0, 0, 0, 0, 0
+  ]);
+
 
   const ducks = [
-    { id: 'duck-0', letter: letters[0], center: true },
-    { id: 'duck-1', letter: letters[1], center: false },
-    { id: 'duck-2', letter: letters[2], center: false },
-    { id: 'duck-3', letter: letters[3], center: false },
-    { id: 'duck-4', letter: letters[4], center: false },
-    { id: 'duck-5', letter: letters[5], center: false },
-    { id: 'duck-6', letter: letters[6], center: false },
+    { id: 'duck-0', letter: letters[0], center: true, animate: bottomAnimation[0]},
+    { id: 'duck-1', letter: letters[1], center: false, animate: bottomAnimation[1] },
+    { id: 'duck-2', letter: letters[2], center: false, animate: bottomAnimation[2] },
+    { id: 'duck-3', letter: letters[3], center: false, animate: bottomAnimation[3] },
+    { id: 'duck-4', letter: letters[4], center: false, animate: bottomAnimation[4] },
+    { id: 'duck-5', letter: letters[5], center: false, animate: bottomAnimation[5] },
+    { id: 'duck-6', letter: letters[6], center: false, animate: bottomAnimation[6] },
   ];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      console.log('interval start');
+      const duckNo = Math.floor(Math.random() * 6);
+      setBottomAnimation(prevAnimation => {
+        const newAnimation = [...prevAnimation];
+        newAnimation[duckNo] = 3;
+        console.log(duckNo);
+        return newAnimation;
+      });
+      setTimeout(() => {
+        console.log('timeout start');
+        setBottomAnimation(prevAnimation => {
+          console.log('animation reset');
+          const newAnimation = [...prevAnimation];
+          newAnimation[duckNo] = 0;
+          return newAnimation;
+        });
+      }, 300);
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
 
   useEffect(() => {
     console.log(foundWords);
@@ -243,8 +273,9 @@ function Play() {
                         style={{
                           ...provided.draggableProps.style,
                           display: 'block',
-                          marginLeft:'-6.4%',
-                          marginRight:'-6.4%'
+                          marginLeft:'-5%',
+                          marginRight:'-5%'
+          
                         }}
                         className="duck-clone"
                       >
@@ -270,7 +301,7 @@ function Play() {
                         ref={provided.innerRef}
                         onClick={() => handleDuckClick(duck)}
                       >
-                        <Duck letter={duck.letter} center={duck.center} className={`duck ${duck.id}`} />
+                        <Duck letter={duck.letter} center={duck.center} position={`${duck.id}`} duckAnimate={duck.animate} />
                       </div>
                     )}
                   </Draggable>
@@ -279,6 +310,7 @@ function Play() {
               </div>
             )}
           </Droppable>
+          <img className="pond" src={pond}/>
           <div className='bottom-bar'>
             <button className='button' onClick={() => undo()}>delete</button>
             <img src={shuffleButton} className='button shuffle' onClick={shuffle}/>

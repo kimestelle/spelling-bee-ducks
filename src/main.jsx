@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Play from './views/Play';
 import App from './views/App';
+import Profile from './views/Profile';
 
 import {
   createBrowserRouter,
@@ -11,6 +12,7 @@ import "./index.css";
 
 const router = createBrowserRouter([
   { path: "spelling-bee-ducks/", element: <App /> },
+  { path: "spelling-bee-ducks/profile", element: <Profile /> },
   { path: "spelling-bee-ducks/play", element: <Play /> },
   ]
 );

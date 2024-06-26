@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import '../styles/Duck.css';
 
-const Duck = ({ letter, center, className, duckAnimate, sink }) => {
-  const animationClass = duckAnimate === 1 ? 'duck-image flap' : (duckAnimate === 2 ? 'duck-image shake' : 'duck-image');
+const Duck = ({ letter, center, position, duckAnimate, sink }) => {
+  const animationClass = duckAnimate === 1 ? 'flap' : (duckAnimate === 2 ? 'shake' : (duckAnimate === 3 ? 'vanilla-flap' : ''));
   const sinkStyle = sink !== 0 ? {
     transform: sink === 1 ? 'translateY(20%)' : 'translateY(-20%)',
     opacity: '0%',
@@ -10,11 +10,10 @@ const Duck = ({ letter, center, className, duckAnimate, sink }) => {
   } : {};
 
   return (
-    <div className={`duck ${className}`} style={sink ? sinkStyle : {}}>
-      <div className={`duck-letter ${center ? 'centered' : ''}`}>
+    <div className={`duck ${animationClass} ${position} ${center ? 'centered' : ''}`} style={sink ? sinkStyle : {}}>
+        <div className='duck-letter'>
         {letter}
-      </div>
-      <div alt={`Duck ${letter}`} className={animationClass} />
+        </div>
     </div>
   );
 };

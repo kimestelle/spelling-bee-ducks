@@ -1,16 +1,3 @@
-* {
-    border: 1px solid red;
-}
-
-.App {
-    width: 100svw; 
-    height: 100svh; 
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
 .title-bar {
     display: flex;
     width: 40svh;
