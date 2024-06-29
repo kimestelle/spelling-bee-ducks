@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
-import ThreeDuck from '../components/ThreeDuck';
+import LoginScene from '../components/login-components/LoginScene';
 
-import duck from '../assets/duck.svg';
 import eyeOff from '../assets/eye.svg';
 import eye from '../assets/eye-off.svg';
 
-import '../styles/App.css';
+import '../styles/Login.css';
 
-function App() {
+function Login() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [password, setPassword] = useState("");
   const [type, setType] = useState('password');
@@ -35,12 +34,7 @@ function App() {
 
   return (
     <div className='screen flex-column' id='root'>
-      <div className='title-bar'>
         <h1 className='title-element'> better-spelling-bee </h1>
-        <img src={duck} className='title-element duck' alt='duck' />
-      </div>
-
-      <ThreeDuck />
 
       {loggedIn ? (
         <div>
@@ -71,10 +65,11 @@ function App() {
           </button>
         </div>
       )}
+      <LoginScene/>
     </div>
   );
 }
 
-export default App;
+export default Login;
 
 

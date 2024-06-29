@@ -1,5 +1,5 @@
 
-import '../styles/App.css';
+import '../styles/Login.css';
 
 function Profile() {
 

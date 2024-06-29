@@ -1,5 +1,5 @@
 * {
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 html, body {
@@ -44,16 +44,19 @@ html, body {
 
   button {
     z-index: 3;
-    width: 12svh;
+    width: 15svh;
     color: black;
     font-size: 1.7svh;
     font-family: "Arvo", serif;
     font-weight: regular;
+
     background-color: rgb(240, 240, 240);
     padding: 0.9svh;
     padding-bottom: 0.8svh;
     border-radius: 0.7svh;
     border: none;
+    box-shadow: 0.2svh 0.2svh lightgray;
+
     cursor: pointer;
   }
 
